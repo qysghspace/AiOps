@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="title">我的故障单</view>
+
+  <view class="card">
+    <view class="muted">当前用户：{{username}}</view>
+    <view class="btn" bindtap="loadIncidents">刷新列表</view>
+    <view class="btn" style="margin-top:12rpx;" bindtap="goHelp">新手帮助与AI问答</view>
+  </view>
+
+  <block wx:for="{{incidents}}" wx:key="id">
+    <view class="card">
+      <view>ID: {{item.id}} / {{item.incidentNo}}</view>
+      <view>{{item.summary}}</view>
+      <view class="tag {{item.status}}">{{item.status}}</view>
+
+      <view class="btn" style="margin-top: 16rpx;" data-id="{{item.id}}" data-status="IN_PROGRESS" bindtap="updateStatus">改为处理中</view>
+      <view class="btn btn-warn" data-id="{{item.id}}" data-status="RESOLVED" bindtap="updateStatus">改为已恢复</view>
+    </view>
+  </block>
+
+  <view wx:if="{{incidents.length === 0}}" class="muted">暂无数据</view>
+</view>

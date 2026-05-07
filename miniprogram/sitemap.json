@@ -1,0 +1,7 @@
+{
+  "desc": "AIOps sitemap",
+  "rules": [{
+    "action": "allow",
+    "page": "*"
+  }]
+}

@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: aiops-backend
+  datasource:
+    url: jdbc:mysql://localhost:3306/aiops?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
+    username: root
+    password: 339401
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      timeout: 3000ms
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  health:
+    redis:
+      enabled: true
+
+ai:
+  agent:
+    base-url: http://localhost:8000
+  ollama:
+    base-url: http://localhost:11434
+    model: deepseek-r1:7b
+
+aiops:
+  auth:
+    token-ttl-seconds: 7200
+  incident:
+    auto:
+      enabled: true
+      scan-interval-ms: 60000
+      resolve-after-minutes: 5
+      close-after-minutes: 30
+  alert:
+    default-error-rate-threshold: 5.0
+    default-latency-threshold-ms: 2000
+    default-dedup-window-sec: 300
+    default-suppress-window-sec: 120
+  monitor:
+    enabled: true

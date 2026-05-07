@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="title">新手帮助与AI问答</view>
+
+  <view class="card">
+    <view class="muted">功能总览</view>
+    <view>1) 告警评估 2) 故障流转 3) AI诊断 4) 小程序快速处理</view>
+  </view>
+
+  <view class="card">
+    <view class="muted">推荐流程</view>
+    <view>步骤1 触发告警 → 步骤2 创建故障单 → 步骤3 AI分析 → 步骤4 状态改为已恢复</view>
+  </view>
+
+  <view class="card">
+    <view class="muted">输入数据示例</view>
+    <view>告警输入：serviceName=order-service, errorRate=8.6, latencyMs=3200</view>
+    <view>故障输入：alertId=1, assignee=zhangsan, summary=timeout spike</view>
+    <view>AI输入：incidentId=1 或 incidentNo=INC...</view>
+  </view>
+
+  <view class="card">
+    <view class="muted">AI问答助手（deepseek-r1:7b）</view>
+    <input class="input" placeholder="请输入问题，例如：为什么看不到我的故障单？" value="{{question}}" bindinput="onQuestionInput"/>
+    <view class="btn" bindtap="askHelp">询问AI助手</view>
+    <view wx:if="{{answer}}" class="ai-box" style="margin-top:12rpx; white-space: pre-wrap;">{{answer}}</view>
+  </view>
+</view>

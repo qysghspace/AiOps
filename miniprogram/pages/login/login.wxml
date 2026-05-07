@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="title">AIOps 移动端登录</view>
+
+  <view class="card">
+    <view class="muted">请输入系统用户名（用于绑定 mock 微信账号）</view>
+    <input class="input" placeholder="例如 zhangsan" value="{{username}}" bindinput="onUsernameInput" />
+    <view class="btn" bindtap="onWxLogin">微信登录（Mock）</view>
+  </view>
+</view>
