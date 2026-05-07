@@ -300,8 +300,8 @@ server:
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/aiops?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
-    username: root
-    password: 339401
+    username: 你的数据库名
+    password: 你的数据库密码
   data:
     redis:
       host: 127.0.0.1
